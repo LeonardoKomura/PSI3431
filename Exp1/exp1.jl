@@ -29,4 +29,6 @@ n1 = 0:1:80000
 #display(plot(n1, y0))
 #display(plot(n1, y))
 
-#e)
+#e) X[n] e y[n] tem a amplitude decrescente -> autocorrelação n é constante // ruído tem amplitude constante (WSS)
+#f) DSP (Sx): calcular rx[l] = E{X[n+l]X[n]} (autocorrelação) -> Somatória{rx[l]exp(-jwl)}
+#   Pm = rx[0] = (1/2pi)*integral{-pi->pi}{Sx}
