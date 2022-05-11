@@ -1,12 +1,13 @@
 using DSP
-using Plots
+using PlotlyJS
+plotlyjs()
 
-Ω = 2pi*500;
+Ω = 2*π*500;
 τ = 0.5;
 f_a = 40000;
 t = 0:1/f_a:2;
 x0 = (sin.(Ω.*t).^3).*exp.(-t./τ);
-#plot(t, x0)
+display(plot(t, x0))
 
 #revisar amplitude do ruído
 wgn = randn((2*f_a)+1);
@@ -24,7 +25,7 @@ H = freqz(hz, ω);
 
 y = filt(hz, x)
 y0 = filt(hz, x0)
-n1 = 0:1:80000
+n1 = 0:1:80000;
 #fazer esse plot no msm gráfico
 #display(plot(n1, y0))
 #display(plot(n1, y))
