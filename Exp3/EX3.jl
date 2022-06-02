@@ -4,6 +4,7 @@ using FixedPointNumbers
 using SampledSignals
 using Statistics
 using PyCall
+using SciPy
 using Polynomials
 plotlyjs()
 
@@ -29,7 +30,7 @@ N, Wn = sig.ellipord(ωp/π, ωr/π, -20*log10(1-δp), -20*log10(δr));
 zpkellip = digitalfilter(Lowpass(Wn), Elliptic(N, -20*log10(1-δp), -20*log10(δr)));
 a = coefa(zpkellip);
 b = coefb(zpkellip);
-ω = range(0, π, lenght=1000);
+ω = 0:π;
 H = freqz(zpkellip, ω);
 plot(ω*fa/(2π), amp2db.(abs.(H)))
 grid()
